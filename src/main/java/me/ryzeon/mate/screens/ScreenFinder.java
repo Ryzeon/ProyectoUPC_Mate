@@ -1,5 +1,6 @@
-package me.ryzeon.mate.utils;
+package me.ryzeon.mate.screens;
 
+import javafx.fxml.FXML;
 import lombok.experimental.UtilityClass;
 
 /**
@@ -11,4 +12,8 @@ import lombok.experimental.UtilityClass;
  */
 @UtilityClass
 public class ScreenFinder {
+
+    public FXML getScreen(Screen screen) {
+        return null;
+    }
 }
