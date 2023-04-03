@@ -5,7 +5,6 @@ module me.ryzeon.projectoupc_mate {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
 
     opens me.ryzeon.mate to javafx.fxml;
     exports me.ryzeon.mate;
