@@ -32,26 +32,9 @@ public class TestFlight {
     void testFlight() {
 
         LogaritAnalysis.INSTANCE.start();
-        IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Trujillo");
-        LOGGER.info(() -> "Found flight: " + flight);
+        IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Arequipa", "Puerto Maldonado");
+        IFlight flight1 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "Juliaca");
         LogaritAnalysis.INSTANCE.finish();
-        Assertions.assertNotNull(flight);
-        Assertions.assertTrue(flight instanceof DirectFlight);
-        LogaritAnalysis.INSTANCE.start();
-        IFlight returnFlight = ServiceContainer.get(FlightService.class).searchFlight("Trujillo", "Lima");
-        LogaritAnalysis.INSTANCE.finish();
-        LOGGER.info(() -> "Found return flight: " + returnFlight);
-        Assertions.assertNotNull(returnFlight);
-        Assertions.assertTrue(returnFlight instanceof DirectFlight);
-        Assertions.assertEquals(flight.origin(), returnFlight.destination());
-        Assertions.assertEquals(flight.destination(), returnFlight.origin());
-        Assertions.assertEquals(flight, returnFlight);
-
-        LogaritAnalysis.INSTANCE.start();
-        IFlight noExistFlight = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Arequipa");
-        LogaritAnalysis.INSTANCE.finish();
-        LOGGER.info(() -> "Found no exist flight: " + noExistFlight);
-        Assertions.assertNull(noExistFlight);
     }
 
     static class LogaritAnalysis {

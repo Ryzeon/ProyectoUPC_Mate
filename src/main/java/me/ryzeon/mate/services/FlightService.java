@@ -36,14 +36,18 @@ public class FlightService implements IService {
         registerDirectFlight("Cusco", "Puerto Maldonado");
         registerDirectFlight("Cusco", "Arequipa");
 
-        calculateConnections();
+//        calculateConnections();
 
-        System.out.println("Flights: " + flights.size());
-        System.out.println("Direct Flights: " + flights.stream().filter(flight -> flight instanceof DirectFlight).collect(Collectors.toSet()).size());
-        System.out.println("Connection Flights: " + flights.stream().filter(flight -> flight instanceof ConnectionFlight).collect(Collectors.toSet()).size());
-        System.out.println("Priting connections:");
-        flights.stream().filter(flight -> flight instanceof ConnectionFlight).forEach(System.out::println);
+
     }
+
+    public IFlight searhForFlight(String from, String to) {
+        for (IFlight flight : flights) {
+
+        }
+        throw new IllegalArgumentException("No flight found from " + from + " to " + to);
+    }
+
 
     private Map<String, Set<String>> buildGraph(List<IFlight> flights) {
         Map<String, Set<String>> graph = new HashMap<>();
@@ -67,32 +71,36 @@ public class FlightService implements IService {
         }
 
         // Remove connections flight if are alrady in list
+        connections.removeIf(flights::contains);
         flights.addAll(connections);
     }
 
     void dfs(String start, String current, Set<String> visited, Map<String, Set<String>> graph, List<IFlight> connections) {
-        visited.add(current);
-        for (String neighbor : graph.get(current)) {
-            if (!visited.contains(neighbor)) {
-                connections.add(createConnectionFlight(start, neighbor, searchFlights(connections, current, neighbor).get(0)));
-                dfs(start, neighbor, visited, graph, connections);
-            }
-        }
+//        visited.add(current);
+//        for (String neighbor : graph.get(current)) {
+//            if (!visited.contains(neighbor)) {
+//                IFlight connection = createConnectionFlight(start, neighbor, searchFlights(connections, current, neighbor).stream().findFirst().orElse(null));
+//                connections.add(connection);
+//                dfs(start, neighbor, visited, graph, connections);
+//            }
+//        }
     }
 
     void registerDirectFlight(String origin, String destination) {
-        flights.add(new DirectFlight(origin, destination));
+        IFlight flight = new DirectFlight(origin, destination);
+        flights.add(flight);
+        flights.add(flight.returnFlight()); // Add return flight
     }
 
     IFlight createConnectionFlight(String origin, String destination, IFlight connection) {
-        Optional<IFlight> directFlight = flights.stream()
-                .filter(f -> f instanceof DirectFlight)
-                .filter(f -> f.origin().equalsIgnoreCase(origin) && f.destination().equalsIgnoreCase(destination))
-                .findFirst();
-
-        return directFlight.orElse(new ConnectionFlight(origin, destination, connection));
+        for (IFlight flight : flights) {
+            if (isDirectFlight(origin, destination, flight) || isPossibleConnectionFlight(origin, destination, flight)) {
+                return flight;
+            }
+        }
+        if (connection == null) return new DirectFlight(origin, destination);
+        return new ConnectionFlight(origin, destination, connection);
     }
-
 
     @Override
     public void disable() {
@@ -100,49 +108,17 @@ public class FlightService implements IService {
 
     }
 
-
-    public List<IFlight> searchFlights(List<IFlight> flights, String from, String to) {
-        List<IFlight> flightsList;
-        if (flights == null)
-            flightsList = this.flights;
-        else {
-            flightsList = flights;
-            flightsList.addAll(this.flights);
-        }
-
-        // Check if from to contains in origin or destination
-        return flightsList
-                .stream()
-                .filter(flight ->
-                        isDirectFlight(from, to, flight) || isPosibleConnectionFlight(from, to, flight)
-                )
-                // if is return flight clone class and change origin and destination
-                .map(flight -> {
-                    if (flight.origin().equalsIgnoreCase(to) && flight.destination().equalsIgnoreCase(from)) {
-                        return flight.returnFlight();
-                    }
-                    return flight;
-                })
-                .collect(Collectors.toList());
-    }
-
     boolean isDirectFlight(String from, String to, IFlight flight) {
-        if (flight.origin().equalsIgnoreCase(from) && flight.destination().equalsIgnoreCase(to)) return true;
-        if (flight.origin().equalsIgnoreCase(to) && flight.destination().equalsIgnoreCase(from)) return true;
-        return false;
+        return flight.origin().equalsIgnoreCase(from) && flight.destination().equalsIgnoreCase(to);
     }
 
-    boolean isPosibleConnectionFlight(String from, String to, IFlight flight) {
-        IFlight returnFlight = flight.returnFlight();
-        if (flight.origin().equalsIgnoreCase(from) || returnFlight.origin().equalsIgnoreCase(from)) {
+    boolean isPossibleConnectionFlight(String from, String to, IFlight flight) {
+        if (flight.origin().equalsIgnoreCase(from)) {
             if (flight.isDirectFlight() && flight.destination().equalsIgnoreCase(to)) return true;
-            if (returnFlight.isDirectFlight() && returnFlight.destination().equalsIgnoreCase(to)) return true;
 
             // Iterate into connections
             IFlight connection = flight.connection();
             while (connection != null) {
-                if (connection.isDirectFlight() && connection.destination().equalsIgnoreCase(to)) return true;
-                connection = connection.returnFlight();
                 if (connection.isDirectFlight() && connection.destination().equalsIgnoreCase(to)) return true;
                 connection = connection.connection();
             }
@@ -151,7 +127,46 @@ public class FlightService implements IService {
         return false;
     }
 
+
+    public List<IFlight> searchFlights(String from, String to) {
+        System.out.println("Searching flights from " + from + " to " + to);
+        List<IFlight> flightsConnectFromPoint = flights.stream().filter(flight -> flight.origin().equalsIgnoreCase(from)).collect(Collectors.toList());
+        System.out.println("Flights connect from " + from + " : " + flightsConnectFromPoint);
+        List<IFlight> flightsConnectToEndpoint = flights.stream().filter(flight -> flight.destination().equalsIgnoreCase(to)).collect(Collectors.toList());
+        System.out.println("Flights connect to " + to + " : " + flightsConnectToEndpoint);
+        List<IFlight> possibleFlights = new ArrayList<>();
+
+        // Busca vuelos directos entre los puntos de origen y destino
+        for (IFlight flight : flights) {
+            if (flight.origin().equalsIgnoreCase(from) && flight.destination().equalsIgnoreCase(to)) {
+                possibleFlights.add(flight);
+            }
+        }
+
+
+        for (IFlight firstFlight : flightsConnectFromPoint) {
+            for (IFlight secondFlight : flightsConnectToEndpoint) {
+                if (firstFlight.destination().equalsIgnoreCase(secondFlight.origin())) {
+                    System.out.println("Found connection flight from " + from + " to " + to + " : " + firstFlight.origin() + " -> " + firstFlight.destination() + " -> " + secondFlight.destination());
+                    ConnectionFlight connectionFlight = new ConnectionFlight(from, to, firstFlight);
+                    possibleFlights.add(connectionFlight);
+                } else {
+                    List<IFlight> flightsConnectToFirstFlight = flights.stream().filter(flight -> flight.origin().equalsIgnoreCase(firstFlight.destination())).collect(Collectors.toList());
+                    for (IFlight thirdFlight : flightsConnectToFirstFlight) {
+                        if (thirdFlight.destination().equalsIgnoreCase(secondFlight.origin())) {
+                            System.out.println("Found connection flight from " + from + " to " + to + " : " + firstFlight.origin() + " -> " + firstFlight.destination() + " -> " + thirdFlight.destination() + " -> " + secondFlight.destination());
+                            ConnectionFlight connectionFlight = new ConnectionFlight(from, to, firstFlight);
+                            possibleFlights.add(connectionFlight);
+                        }
+                    }
+                }
+            }
+        }
+
+        return possibleFlights;
+    }
+
     public IFlight searchFlight(String from, String to) {
-        return searchFlights(null, from, to).stream().findFirst().orElse(null);
+        return searchFlights(from, to).stream().findFirst().orElse(null);
     }
 }
