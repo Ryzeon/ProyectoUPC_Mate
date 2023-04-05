@@ -19,7 +19,7 @@ public class ServiceContainer {
     private final LinkedHashMap<Class<? extends IService>, IService> services = new LinkedHashMap<>();
 
     public <T> T register(Class<T> tClass) {
-        if (!tClass.isAssignableFrom(IService.class)) {
+        if (!IService.class.isAssignableFrom(tClass)) {
             throw new NoServiceException(tClass);
         }
 
@@ -41,7 +41,12 @@ public class ServiceContainer {
         services.values().forEach(IService::enable);
     }
 
+    public <T> T get(Class<T> clazz) {
+        return (T) services.get(clazz);
+    }
+
     public <T> T bind(Class<T> clazz) {
         return (T) services.get(clazz);
     }
+
 }
