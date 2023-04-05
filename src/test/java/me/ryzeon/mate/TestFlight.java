@@ -1,10 +1,11 @@
 package me.ryzeon.mate;
 
 import me.ryzeon.mate.model.IFlight;
-import me.ryzeon.mate.model.impl.DirectFlight;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.services.FlightService;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 

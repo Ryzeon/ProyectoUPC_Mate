@@ -35,10 +35,6 @@ public class FlightService implements IService {
         // Cusco Flights
         registerDirectFlight("Cusco", "Puerto Maldonado");
         registerDirectFlight("Cusco", "Arequipa");
-
-//        calculateConnections();
-
-
     }
 
     public IFlight searhForFlight(String from, String to) {
