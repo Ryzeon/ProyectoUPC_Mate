@@ -37,7 +37,7 @@ public class FlightService implements IService {
         registerDirectFlight("Cusco", "Arequipa");
 
         //International
-        registerDirectFlight("");
+        registerDirectFlight("Gustavo","Alex");
     }
 
     public IFlight searhForFlight(String from, String to) {
