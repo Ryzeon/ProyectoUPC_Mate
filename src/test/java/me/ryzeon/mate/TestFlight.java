@@ -35,6 +35,7 @@ public class TestFlight {
         LogaritAnalysis.INSTANCE.start();
         IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Arequipa", "Puerto Maldonado");
         IFlight flight1 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "Juliaca");
+        IFlight flight2 = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Cancun");
         LogaritAnalysis.INSTANCE.finish();
     }
 
