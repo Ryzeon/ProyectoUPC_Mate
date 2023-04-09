@@ -36,6 +36,13 @@ public class TestFlight {
         IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Arequipa", "Puerto Maldonado");
         IFlight flight1 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "Juliaca");
         IFlight flight2 = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Cancun");
+        IFlight flight3 = ServiceContainer.get(FlightService.class).searchFlight("Trujillo", "Bogota");
+        IFlight flight4 = ServiceContainer.get(FlightService.class).searchFlight("Cusco", "Bogota");
+        IFlight flight5 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "San Salvador");
+        // TODO: Improve code to search flights more faster
+        // TODO: Try to use async methods
+        // TODO: Try to improve the algorithm and allow more 4 connections
+        // TODO: Try to use a cache system with database
         LogaritAnalysis.INSTANCE.finish();
     }
 
