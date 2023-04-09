@@ -80,51 +80,6 @@ public class FlightService implements IService {
 
     }
 
-    public IFlight searhForFlight(String from, String to) {
-        for (IFlight flight : flights) {
-
-        }
-        throw new IllegalArgumentException("No flight found from " + from + " to " + to);
-    }
-
-
-    private Map<String, Set<String>> buildGraph(List<IFlight> flights) {
-        Map<String, Set<String>> graph = new HashMap<>();
-        for (IFlight flight : flights) {
-            String origin = flight.origin();
-            String destination = flight.destination();
-            graph.putIfAbsent(origin, new HashSet<>());
-            graph.putIfAbsent(destination, new HashSet<>());
-            graph.get(origin).add(destination);
-            graph.get(destination).add(origin);
-        }
-        return graph;
-    }
-
-    void calculateConnections() {
-        Map<String, Set<String>> graph = buildGraph(Arrays.asList(flights.toArray(new IFlight[0])));
-        List<IFlight> connections = new ArrayList<>();
-        for (String city : graph.keySet()) {
-            Set<String> visited = new HashSet<>();
-            dfs(city, city, visited, graph, connections);
-        }
-
-        // Remove connections flight if are alrady in list
-        connections.removeIf(flights::contains);
-        flights.addAll(connections);
-    }
-
-    void dfs(String start, String current, Set<String> visited, Map<String, Set<String>> graph, List<IFlight> connections) {
-//        visited.add(current);
-//        for (String neighbor : graph.get(current)) {
-//            if (!visited.contains(neighbor)) {
-//                IFlight connection = createConnectionFlight(start, neighbor, searchFlights(connections, current, neighbor).stream().findFirst().orElse(null));
-//                connections.add(connection);
-//                dfs(start, neighbor, visited, graph, connections);
-//            }
-//        }
-    }
-
     void registerDirectFlight(String origin, String destination) {
         IFlight flight = new DirectFlight(origin, destination);
         flights.add(flight);
@@ -143,8 +98,7 @@ public class FlightService implements IService {
 
     @Override
     public void disable() {
-
-
+        // Stuff to do when disabling the service
     }
 
     boolean isDirectFlight(String from, String to, IFlight flight) {
