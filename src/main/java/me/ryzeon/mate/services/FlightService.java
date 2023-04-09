@@ -23,6 +23,8 @@ public class FlightService implements IService {
 
     @Override
     public void enable() {
+        // Peru Flights
+
         // Lima Flights
         registerDirectFlight("Lima", "Trujillo");
         registerDirectFlight("Lima", "Chiclayo");
@@ -36,8 +38,46 @@ public class FlightService implements IService {
         registerDirectFlight("Cusco", "Puerto Maldonado");
         registerDirectFlight("Cusco", "Arequipa");
 
-        //International
-        registerDirectFlight("Gustavo", "Alex");
+        // International Flights
+
+        // Ciudad de Mexico Flights
+        registerDirectFlight("Ciudad de Mexico", "San Salvador");
+        registerDirectFlight("Ciudad de Mexico", "San Jose de Costa Rica");
+        registerDirectFlight("Ciudad de Mexico", "Bogota");
+        registerDirectFlight("Ciudad de Mexico", "Lima");
+
+        // San Salvador Flights
+        registerDirectFlight("San Salvador", "Cancun");
+        registerDirectFlight("San Salvador", "Belice");
+        registerDirectFlight("San Salvador", "San Pedro de Sula");
+        registerDirectFlight("San Salvador", "Roatan");
+        registerDirectFlight("San Salvador", "La Habana");
+        registerDirectFlight("San Salvador", "Managua");
+        registerDirectFlight("San Salvador", "Liberia");
+        registerDirectFlight("San Salvador", "San Jose de Costa Rica");
+        registerDirectFlight("San Salvador", "Ciudad de Panama");
+        registerDirectFlight("San Salvador", "Medellin");
+        registerDirectFlight("San Salvador", "Cali");
+        registerDirectFlight("San Salvador", "Quito");
+        registerDirectFlight("San Salvador", "Guayaquil");
+        registerDirectFlight("San Salvador", "Lima");
+
+        // Bogota Flights
+        registerDirectFlight("Bogota", "San Salvador");
+        registerDirectFlight("Bogota", "San Jose de Costa Rica");
+        registerDirectFlight("Bogota", "Ciudad de Panama");
+        registerDirectFlight("Bogota", "Ciudad de Guatemala");
+        registerDirectFlight("Bogota", "Cancun");
+        registerDirectFlight("Bogota", "Santo Domingo");
+        registerDirectFlight("Bogota", "Punta Cana");
+        registerDirectFlight("Bogota", "San Juan");
+
+        // Lima Flights
+        registerDirectFlight("Lima", "San Jose de Costa Rica");
+        registerDirectFlight("Lima", "Guayaquil");
+        registerDirectFlight("Lima", "Quito");
+        registerDirectFlight("Lima", "Santo Domingo");
+
     }
 
     public IFlight searhForFlight(String from, String to) {
