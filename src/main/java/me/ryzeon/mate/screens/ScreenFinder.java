@@ -1,7 +1,8 @@
 package me.ryzeon.mate.screens;
 
-import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import lombok.experimental.UtilityClass;
+import me.ryzeon.mate.FlightApplication;
 
 /**
  * Created by Ryzeon
@@ -13,7 +14,10 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ScreenFinder {
 
-    public FXML getScreen(Screen screen) {
-        return null;
+    public FXMLLoader getScreen(Screen screen) {
+        if (FlightApplication.class.getResource(screen.getScreenName()) == null) {
+            throw new NullPointerException("The screen " + screen.getScreenName() + " does not exist.");
+        }
+        return new FXMLLoader(FlightApplication.class.getResource(screen.getScreenName()));
     }
 }
