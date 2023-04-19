@@ -1,7 +1,7 @@
 # About this project
 
 Project info
-
+https://floobits.com/Ryzeon/ProjectoUPC_Mate/file/README.md:1#
 # Team:
 - [Alex Avila ](https://github.com/Ryzeon)
 - [Gustavo Huilca](https://github.com/GustavoHuilca31)
@@ -16,7 +16,6 @@ Project documentation
 - [MaterialFX](https://github.com/palexdev/MaterialFX)
 - [AwesomeJavaFX](https://github.com/mhrimaz/AwesomeJavaFX)
 - [AnimateFX](https://github.com/Typhon0/AnimateFX)
-- 
 # Installation
 ```bash
 git clone #Copy the repository
@@ -26,4 +25,5 @@ java -jar target/ #Run the project
 ```
 ## Requirements
 > - [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+> - [Scene Builder](https://gluonhq.com/products/scene-builder/)
 > - [Maven](https://maven.apache.org/download.cgi)

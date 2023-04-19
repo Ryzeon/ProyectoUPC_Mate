@@ -1,5 +1,6 @@
 package me.ryzeon.mate.screens;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -9,10 +10,15 @@ import lombok.Data;
  * Twitter: @Ryzeon_ 😎
  * Github: github.ryzeon.me
  */
+@AllArgsConstructor
 public enum Screen {
 
+    LOGIN("login-screen"),
     ;
 
-    private String screenName;
-    private String screenPath;
+    private final String screenName;
+
+    public String getScreenName() {
+        return screenName + ".fxml";
+    }
 }

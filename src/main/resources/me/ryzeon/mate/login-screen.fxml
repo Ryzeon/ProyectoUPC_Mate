@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.LoginScreenController">
+   <children>
+      <Label layoutX="164.0" layoutY="64.0" text="Nombre de la app" />
+      <Label layoutX="204.0" layoutY="272.0" text="Login" />
+      <MFXToggleButton fx:id="test" layoutX="150.0" layoutY="326.0" text="sds" />
+   </children>
+</AnchorPane>
