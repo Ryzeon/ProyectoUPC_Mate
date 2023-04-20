@@ -3,9 +3,12 @@ package me.ryzeon.mate;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import me.ryzeon.mate.backend.SQLService;
 import me.ryzeon.mate.screens.Screen;
 import me.ryzeon.mate.screens.ScreenFactory;
 import me.ryzeon.mate.screens.ScreenLoader;
+import me.ryzeon.mate.service.ServiceContainer;
+import me.ryzeon.mate.services.FlightService;
 
 import java.io.IOException;
 
@@ -32,6 +35,11 @@ public class FlightApplication {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+
+        // Init
+        ServiceContainer.register(SQLService.class);
+        ServiceContainer.register(FlightService.class);
+        ServiceContainer.enableServices();
     }
 
     public ScreenLoader switchTo(Screen screen)throws Exception {
