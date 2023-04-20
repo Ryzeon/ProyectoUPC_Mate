@@ -3,7 +3,6 @@ package me.ryzeon.mate;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import me.ryzeon.mate.controllers.LoginScreenController;
 import me.ryzeon.mate.screens.Screen;
 import me.ryzeon.mate.screens.ScreenFactory;
 import me.ryzeon.mate.screens.ScreenLoader;
@@ -11,6 +10,8 @@ import me.ryzeon.mate.screens.ScreenLoader;
 import java.io.IOException;
 
 public class FlightApplication {
+
+    private Scene scene;
 
     private static FlightApplication instance;
 
@@ -31,6 +32,12 @@ public class FlightApplication {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public ScreenLoader switchTo(Screen screen)throws Exception {
+        ScreenLoader screenLoader = ScreenFactory.getInstance().loadScreenWithController(screen);
+        scene.setRoot(screenLoader.loadScreen());
+        return screenLoader;
     }
 
 }

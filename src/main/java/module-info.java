@@ -1,17 +1,16 @@
 module me.ryzeon.projectoupc_mate {
 
     requires MaterialFX;
-    requires VirtualizedFX;
 
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires javafx.graphics;
-    requires javafx.media;
-    requires javafx.web;
+//    requires javafx.controls;
+//    requires javafx.fxml;
+//    requires javafx.graphics;
+//    requires javafx.media;
+//    requires javafx.web;
 
-    requires org.controlsfx.controls;
+//    requires org.controlsfx.controls;
 
-    requires org.kordamp.bootstrapfx.core;
+//    requires org.kordamp.bootstrapfx.core;
 
     requires static lombok; // Lombok is only required at compile time, not at runtime.
 

@@ -90,6 +90,16 @@
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
+                <configuration>
+                    <mainClass>me.ryzeon.mate.start.Start</mainClass>
+                    <jmodsPath>${java.home}/jmods</jmodsPath>
+                    <jlinkImageName>app</jlinkImageName>
+                    <jlinkZipName>app</jlinkZipName>
+                    <launcher>app</launcher>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                    <stripDebug>true</stripDebug>
+                </configuration>
                 <executions>
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
