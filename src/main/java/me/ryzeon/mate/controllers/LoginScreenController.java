@@ -27,21 +27,14 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
     public MFXPasswordField password;
     public MFXButton login;
     public MFXButton login1;
-    public Label mensajedeerror;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         test.setOnMouseClicked(mouseEvent -> {
             System.out.println("Clicked");
         });
-    }
-
-    public void loginButtonOnAction(ActionEvent e) {
-        if (username.getText().isBlank() == false && password.getText().isBlank() == false) {
-            mensajedeerror.setText("Ingresa los datos solicitados");
-        } else {
-            mensajedeerror.setText("Porfavor ingrese el Usuario y la Contraseña");
-        }
     }
 }
 
