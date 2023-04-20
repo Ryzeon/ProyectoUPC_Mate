@@ -6,6 +6,10 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import me.ryzeon.mate.screens.IScreenController;
 
+import java.awt.event.ActionEvent;
+import java.util.Scanner;
+
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,6 +27,7 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
     public MFXPasswordField password;
     public MFXButton login;
     public MFXButton login1;
+    public Label mensajedeerror;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,4 +35,14 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
             System.out.println("Clicked");
         });
     }
+
+    public void loginButtonOnAction(ActionEvent e) {
+        if (username.getText().isBlank() == false && password.getText().isBlank() == false) {
+            mensajedeerror.setText("Ingresa los datos solicitados");
+        } else {
+            mensajedeerror.setText("Porfavor ingrese el Usuario y la Contraseña");
+        }
+    }
 }
+
+
