@@ -1,6 +1,6 @@
 package me.ryzeon.mate;
 
-import me.ryzeon.mate.model.IFlight;
+import me.ryzeon.mate.model.flight.IFlight;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.services.FlightService;
 import org.junit.jupiter.api.BeforeAll;

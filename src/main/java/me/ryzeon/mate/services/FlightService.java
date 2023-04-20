@@ -1,9 +1,9 @@
 package me.ryzeon.mate.services;
 
 import lombok.Getter;
-import me.ryzeon.mate.model.IFlight;
-import me.ryzeon.mate.model.impl.ConnectionFlight;
-import me.ryzeon.mate.model.impl.DirectFlight;
+import me.ryzeon.mate.model.flight.IFlight;
+import me.ryzeon.mate.model.flight.impl.ConnectionFlight;
+import me.ryzeon.mate.model.flight.impl.DirectFlight;
 import me.ryzeon.mate.service.IService;
 
 import java.util.*;

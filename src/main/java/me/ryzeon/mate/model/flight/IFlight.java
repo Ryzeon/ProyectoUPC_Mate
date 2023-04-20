@@ -1,4 +1,4 @@
-package me.ryzeon.mate.model;
+package me.ryzeon.mate.model.flight;
 
 /**
  * Created by Ryzeon

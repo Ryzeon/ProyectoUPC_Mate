@@ -1,7 +1,7 @@
-package me.ryzeon.mate.model.impl;
+package me.ryzeon.mate.model.flight.impl;
 
 import lombok.ToString;
-import me.ryzeon.mate.model.IFlight;
+import me.ryzeon.mate.model.flight.IFlight;
 
 import java.util.Objects;
 

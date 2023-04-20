@@ -1,4 +1,4 @@
-package me.ryzeon.mate.model.exception;
+package me.ryzeon.mate.model.flight.exception;
 
 /**
  * Created by Ryzeon
