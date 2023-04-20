@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MFXTextField fx:id="username" floatingText="Username" graphicTextGap="5.0" layoutX="120.0" layoutY="122.0" prefHeight="55.0" prefWidth="203.0" textLimit="0" />
+      <MFXTextField fx:id="mail" floatingText="Email" layoutX="120.0" layoutY="192.0" prefHeight="55.0" prefWidth="203.0" />
+      <MFXButton fx:id="goback" layoutX="170.0" layoutY="570.0" prefHeight="41.0" prefWidth="104.0" text="Go back" />
+      <MFXButton fx:id="Register" layoutX="132.0" layoutY="490.0" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: lghtu;" text="Register" />
+      <MFXPasswordField layoutX="120.0" layoutY="298.0" prefHeight="55.0" prefWidth="203.0" promptText="Password" textLimit="10" />
+      <MFXPasswordField layoutX="120.0" layoutY="366.0" prefHeight="55.0" prefWidth="203.0" promptText="Confirm Password" textLimit="10" />
+      <Line endX="208.39340209960938" endY="-131.60659790039062" layoutX="111.0" layoutY="123.0" startX="-136.60659790039062" startY="32.606597900390625" stroke="#4fa18d" strokeWidth="15.0" />
+      <Line endX="170.0" endY="-120.0" layoutX="121.0" layoutY="90.0" startX="-201.0" startY="55.0" stroke="#4fa18d" strokeWidth="15.0" />
+   </children>
+</AnchorPane>

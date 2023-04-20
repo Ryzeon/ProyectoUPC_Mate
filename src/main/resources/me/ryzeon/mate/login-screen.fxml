@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.LoginScreenController">
+<AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.LoginScreenController">
    <children>
       <MFXToggleButton fx:id="test" layoutX="238.0" layoutY="355.0" text="Keep me logged in" />
       <MFXTextField fx:id="username" layoutX="41.0" layoutY="191.0" prefHeight="49.0" prefWidth="362.0" promptText="Type your Username">
@@ -17,16 +21,14 @@
       <MFXPasswordField fx:id="password" alignment="TOP_LEFT" layoutX="40.0" layoutY="277.0" prefHeight="49.0" prefWidth="362.0" promptText="Type your Password" />
       <MFXButton fx:id="login" buttonType="RAISED" layoutX="41.0" layoutY="460.0" prefHeight="55.0" prefWidth="154.0" text="Login" />
       <MFXButton fx:id="login1" buttonType="RAISED" layoutX="244.0" layoutY="460.0" prefHeight="55.0" prefWidth="154.0" text="Sign up" />
-      <Label contentDisplay="TOP" layoutX="140.0" layoutY="70.0" text="Login" textFill="#3f4bd7">
+      <Label contentDisplay="TOP" layoutX="155.0" layoutY="68.0" text="Login" textFill="#3f4bd7">
          <font>
             <Font name="Comfort SemiBold" size="55.0" />
          </font>
       </Label>
       <Line endX="170.0" endY="-120.0" layoutX="101.0" layoutY="113.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
       <Line endX="170.0" endY="-120.0" layoutX="111.0" layoutY="80.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
-      <MFXProgressSpinner layoutX="145.0" layoutY="136.0" progress="0.0" />
-      <MFXProgressBar layoutX="40.0" layoutY="570.0" prefWidth="200.0" progress="0.0" />
-      <MFXNotificationCenter layoutX="293.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" />
-      <MFXDatePicker layoutX="32.0" layoutY="377.0" />
+      <MFXProgressBar layoutX="32.0" layoutY="572.0" prefWidth="200.0" progress="0.0" />
+      <MFXProgressBar layoutX="203.0" layoutY="572.0" prefWidth="200.0" progress="0.0" />
    </children>
 </AnchorPane>
