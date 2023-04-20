@@ -10,9 +10,10 @@ import me.ryzeon.mate.service.IService;
  * Github: github.ryzeon.me
  */
 public class SQLService implements IService {
+    
     @Override
     public void enable() {
-
+        // Using h2 database for now
     }
 
     @Override
