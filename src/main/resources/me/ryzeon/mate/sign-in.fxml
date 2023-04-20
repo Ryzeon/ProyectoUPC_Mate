@@ -3,18 +3,37 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MFXTextField fx:id="username" floatingText="Username" graphicTextGap="5.0" layoutX="120.0" layoutY="122.0" prefHeight="55.0" prefWidth="203.0" textLimit="0" />
-      <MFXTextField fx:id="mail" floatingText="Email" layoutX="120.0" layoutY="192.0" prefHeight="55.0" prefWidth="203.0" />
-      <MFXButton fx:id="goback" layoutX="170.0" layoutY="570.0" prefHeight="41.0" prefWidth="104.0" text="Go back" />
-      <MFXButton fx:id="Register" layoutX="132.0" layoutY="490.0" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: lghtu;" text="Register" />
-      <MFXPasswordField layoutX="120.0" layoutY="298.0" prefHeight="55.0" prefWidth="203.0" promptText="Password" textLimit="10" />
-      <MFXPasswordField layoutX="120.0" layoutY="366.0" prefHeight="55.0" prefWidth="203.0" promptText="Confirm Password" textLimit="10" />
-      <Line endX="208.39340209960938" endY="-131.60659790039062" layoutX="111.0" layoutY="123.0" startX="-136.60659790039062" startY="32.606597900390625" stroke="#4fa18d" strokeWidth="15.0" />
-      <Line endX="170.0" endY="-120.0" layoutX="121.0" layoutY="90.0" startX="-201.0" startY="55.0" stroke="#4fa18d" strokeWidth="15.0" />
+      <MFXTextField fx:id="username" floatingText="Username" graphicTextGap="5.0" layoutX="120.0" layoutY="128.0" prefHeight="55.0" prefWidth="203.0" style="-fx-border-color: #4fa18d;" />
+      <MFXTextField fx:id="mail" floatingText="Email" layoutX="121.0" layoutY="204.0" prefHeight="55.0" prefWidth="203.0" style="-fx-border-color: #4fa18d;" />
+      <MFXButton fx:id="goback" buttonType="RAISED" layoutX="170.0" layoutY="570.0" prefHeight="41.0" prefWidth="104.0" text="Go back" />
+      <MFXButton fx:id="Register" buttonType="RAISED" contentDisplay="TOP" depthLevel="LEVEL3" layoutX="132.0" layoutY="490.0" prefHeight="55.0" prefWidth="180.0" rippleAnimateShadow="true" rippleColor="WHITE" style="-fx-background-color: #3d5541;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="19.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect></MFXButton>
+      <MFXPasswordField layoutX="121.0" layoutY="322.0" prefHeight="55.0" prefWidth="203.0" promptText="Password" style="-fx-border-color: #4fa18d;" textLimit="10" />
+      <MFXPasswordField layoutX="120.0" layoutY="389.0" prefHeight="55.0" prefWidth="203.0" promptText="Confirm Password" style="-fx-border-color: #4fa18d;" textLimit="10" />
+      <Line endX="113.39340209960938" endY="-169.21319580078125" layoutX="111.0" layoutY="123.0" startX="-136.60659790039062" startY="32.606597900390625" stroke="#4fa18d" strokeWidth="15.0" />
+      <Line endX="26.393402099609375" endY="-121.60659790039062" layoutX="121.0" layoutY="90.0" startX="-201.0" startY="55.0" stroke="#4fa18d" strokeWidth="15.0" />
+      <Label contentDisplay="TOP" layoutX="132.0" layoutY="31.0" text="Sign In " textAlignment="CENTER" textFill="#404dd6">
+         <font>
+            <Font name="Comfort SemiBold" size="55.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="TOP" layoutX="116.0" layoutY="300.0" prefHeight="16.0" prefWidth="213.0" text=" Passwords must have 10 characters as max" textFill="#000000ad">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
