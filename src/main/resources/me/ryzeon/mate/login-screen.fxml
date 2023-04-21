@@ -12,7 +12,6 @@
 
 <AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.LoginScreenController">
    <children>
-      <MFXButton fx:id="login" buttonType="RAISED" layoutX="41.0" layoutY="460.0" prefHeight="55.0" prefWidth="154.0" text="Login" />
       <MFXToggleButton fx:id="test" layoutX="238.0" layoutY="355.0" text="Keep me logged in" />
       <MFXTextField fx:id="username" layoutX="41.0" layoutY="191.0" prefHeight="49.0" prefWidth="362.0" promptText="Type your Username">
          <font>
@@ -20,6 +19,7 @@
          </font>
       </MFXTextField>
       <MFXPasswordField fx:id="password" alignment="TOP_LEFT" layoutX="40.0" layoutY="277.0" prefHeight="49.0" prefWidth="362.0" promptText="Type your Password" />
+      <MFXButton fx:id="login" buttonType="RAISED" layoutX="41.0" layoutY="460.0" prefHeight="55.0" prefWidth="154.0" text="Login" />
       <MFXButton fx:id="login1" buttonType="RAISED" layoutX="244.0" layoutY="460.0" prefHeight="55.0" prefWidth="154.0" text="Sign up" />
       <Label contentDisplay="TOP" layoutX="155.0" layoutY="68.0" text="Login" textFill="#3f4bd7">
          <font>

@@ -6,10 +6,6 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import me.ryzeon.mate.screens.IScreenController;
 
-import java.awt.event.ActionEvent;
-import java.util.Scanner;
-
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,8 +24,6 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
     public MFXButton login;
     public MFXButton login1;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         test.setOnMouseClicked(mouseEvent -> {
@@ -37,5 +31,3 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
         });
     }
 }
-
-
