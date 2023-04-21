@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="180.0" layoutY="44.0" text="Avianca Airlines">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="133.0" layoutY="14.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
+          <image>
+                <Image url="https://github.com/Ryzeon/ProyectoUPC_Mate/blob/f4fc41701ec1cc2e5e75fb1d5a97b213aeadea41/src/main/resources/me/ryzeon/mate/img"/>
+          </image>
+      </ImageView>
+      <Label layoutX="91.0" layoutY="33.0" prefHeight="64.0" prefWidth="262.0" text="Avianca Airlines">
          <font>
-            <Font name="Elephant" size="12.0" />
+            <Font name="Bahuraksa" size="36.0" />
          </font>
       </Label>
+      <MFXButton buttonType="RAISED" layoutX="195.0" layoutY="281.0" />
    </children>
 </AnchorPane>
