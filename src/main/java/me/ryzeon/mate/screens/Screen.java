@@ -14,7 +14,7 @@ public enum Screen {
 
     LOGIN("login-screen"),
     SIGN_UP("sign-in"),
-    PRINCIPAL_PAGE("principal-page"),
+    PRINCIPAL_PAGE("principal_page"),
     ;
 
     private final String screenName;

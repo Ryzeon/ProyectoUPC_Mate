@@ -15,7 +15,6 @@ Project documentation
 - [FormsFX](https://github.com/dlsc-software-consulting-gmbh/FormsFX)
 - [MaterialFX](https://github.com/palexdev/MaterialFX)
 - [AwesomeJavaFX](https://github.com/mhrimaz/AwesomeJavaFX)
-- [AnimateFX](https://github.com/Typhon0/AnimateFX)
 - [Hibernate](https://hibernate.org/)
 # Installation
 ```bash

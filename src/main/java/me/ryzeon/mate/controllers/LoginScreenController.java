@@ -52,7 +52,7 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
                 .constraint("Username must be at least 4 characters long", username.textProperty().length().greaterThanOrEqualTo(4));
         username.getValidator()
                 .constraint("Username must not contain special characters",
-                        containsSpecialCharacter(username.textProperty()).not());
+                        Utils.containsSpecialCharacter(username.textProperty()).not());
         password.getValidator()
                 .constraint("Password must be at least 8 characters long", password.textProperty().length().greaterThanOrEqualTo(4));
 
@@ -71,15 +71,6 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
         validatorText.setPrefWidth(300);
         validatorText.setText("");
         validatorText.setManaged(false);
-    }
-
-
-    BooleanExpression containsSpecialCharacter(StringProperty textProperty) {
-        String text = textProperty.get();
-        if (text == null) {
-            return Bindings.when(textProperty.isNull()).then(false).otherwise(false);
-        }
-        return Bindings.createBooleanBinding(() -> text.matches("[a-zA-Z0-9@_-]+"), textProperty);
     }
 
     boolean validate() {

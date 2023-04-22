@@ -1,5 +1,8 @@
 package me.ryzeon.mate.utils;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanExpression;
+import javafx.beans.property.StringProperty;
 import lombok.experimental.UtilityClass;
 import me.ryzeon.mate.model.user.User;
 import me.ryzeon.mate.service.ServiceContainer;
@@ -39,6 +42,14 @@ public class Utils {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public BooleanExpression containsSpecialCharacter(StringProperty textProperty) {
+        String text = textProperty.get();
+        if (text == null) {
+            return Bindings.when(textProperty.isNull()).then(false).otherwise(false);
+        }
+        return Bindings.createBooleanBinding(() -> text.matches("[a-zA-Z0-9@_-]+"), textProperty);
     }
 
     public String[] recoverPassword() {
