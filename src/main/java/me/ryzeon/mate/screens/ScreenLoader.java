@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Parent;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ import java.io.IOException;
  * Github: github.ryzeon.me
  */
 @Getter
+@ToString
 public class ScreenLoader {
     private final FXMLLoader loader;
     private Parent parent;
