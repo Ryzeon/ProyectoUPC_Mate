@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 
+import java.util.List;
+
 /**
  * Created by Ryzeon
  * Project: ProjectoUPC_Mate
@@ -67,16 +69,20 @@ public class TestFlight {
     void testFlight() {
 
         LogaritAnalysis.INSTANCE.start();
-        IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Arequipa", "Puerto Maldonado");
-        IFlight flight1 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "Juliaca");
-        IFlight flight2 = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Cancun");
-        IFlight flight3 = ServiceContainer.get(FlightService.class).searchFlight("Trujillo", "Bogota");
-        IFlight flight4 = ServiceContainer.get(FlightService.class).searchFlight("Cusco", "Bogota");
-        IFlight flight5 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "San Salvador");
+//        IFlight flight = ServiceContainer.get(FlightService.class).searchFlight("Arequipa", "Puerto Maldonado");
+//        IFlight flight1 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "Juliaca");
+//        IFlight flight2 = ServiceContainer.get(FlightService.class).searchFlight("Lima", "Cancun");
+//        IFlight flight3 = ServiceContainer.get(FlightService.class).searchFlight("Trujillo", "Bogota");
+//        IFlight flight4 = ServiceContainer.get(FlightService.class).searchFlight("Cusco", "Bogota");
+//        IFlight flight5 = ServiceContainer.get(FlightService.class).searchFlight("Puerto Maldonado", "San Salvador");
         // TODO: Improve code to search flights more faster
         // TODO: Try to use async methods
         // TODO: Try to improve the algorithm and allow more 4 connections
         // TODO: Try to use a cache system with database
+        List<IFlight> xd = ServiceContainer.get(FlightService.class).searchFlights("Trujillo", "Bogota", 2);
+        for (IFlight iFlight : xd) {
+            System.out.println(iFlight);
+        }
         LogaritAnalysis.INSTANCE.finish();
     }
 

@@ -1,5 +1,6 @@
 package me.ryzeon.mate.model.flight.impl;
 
+import lombok.Setter;
 import lombok.ToString;
 import me.ryzeon.mate.model.flight.IFlight;
 
@@ -17,7 +18,8 @@ public class ConnectionFlight implements IFlight {
 
     private final String origin, destination;
 
-    private final IFlight connection;
+    @Setter
+    private IFlight connection;
 
     public ConnectionFlight(String origin, String destination, IFlight connection) {
         this.origin = origin;

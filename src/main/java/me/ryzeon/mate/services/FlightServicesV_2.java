@@ -14,7 +14,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
     @Override
     public void enable() {
-        
+        Boolean[][] a = createBooleanArray(1000, 1000);
+        Boolean[][] b = createBooleanArray(1000, 1000);
+        multiply(a, b);
     }
 
     @Override

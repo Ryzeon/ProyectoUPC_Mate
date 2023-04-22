@@ -159,6 +159,43 @@ public class FlightService implements IService {
         return possibleFlights;
     }
 
+    public List<IFlight> searchFlights(String from, String to, int maxConnections) {
+        System.out.println("Searching flights from " + from + " to " + to);
+        List<IFlight> possibleFlights = flights.stream()
+                .filter(flight -> flight.origin().equalsIgnoreCase(from) && flight.destination().equalsIgnoreCase(to)).collect(Collectors.toList());
+        if (maxConnections > 0) {
+            List<IFlight> flightsConnectFromPoint = flights.stream()
+                    .filter(flight -> flight.origin().equalsIgnoreCase(from))
+                    .collect(Collectors.toList());
+            List<IFlight> flightsConnectToEndpoint = flights.stream()
+                    .filter(flight -> flight.destination().equalsIgnoreCase(to))
+                    .collect(Collectors.toList());
+            for (IFlight firstFlight : flightsConnectFromPoint) {
+                for (IFlight secondFlight : flightsConnectToEndpoint) {
+                    if (firstFlight.destination().equalsIgnoreCase(secondFlight.origin())) {
+                        System.out.println("Found connection flight from " + from + " to " + to + " : " + firstFlight.origin() + " -> " + firstFlight.destination() + " -> " + secondFlight.destination());
+                        ConnectionFlight connectionFlight = new ConnectionFlight(from, to, firstFlight);
+                        possibleFlights.add(connectionFlight);
+                    } else if (maxConnections > 1) {
+                        List<IFlight> flightsConnectToFirstFlight = flights.stream()
+                                .filter(flight -> flight.origin().equalsIgnoreCase(firstFlight.destination()))
+                                .collect(Collectors.toList());
+                        for (IFlight thirdFlight : flightsConnectToFirstFlight) {
+                            if (thirdFlight.destination().equalsIgnoreCase(secondFlight.origin())) {
+                                System.out.println("Found connection flight from " + from + " to " + to + " : " + firstFlight.origin() + " -> " + firstFlight.destination() + " -> " + thirdFlight.destination() + " -> " + secondFlight.destination());
+                                ConnectionFlight connectionFlight = new ConnectionFlight(from, to, firstFlight);
+                                ConnectionFlight connectionFlight2 = new ConnectionFlight(from, to, thirdFlight);
+                                connectionFlight.setConnection(connectionFlight2);
+                                possibleFlights.add(connectionFlight);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return possibleFlights;
+    }
+
     public IFlight searchFlight(String from, String to) {
         return searchFlights(from, to).stream().findFirst().orElse(null);
     }
