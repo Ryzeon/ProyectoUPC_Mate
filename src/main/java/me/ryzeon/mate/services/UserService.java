@@ -6,6 +6,7 @@ import me.ryzeon.mate.service.IService;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.utils.Utils;
 import me.ryzeon.mate.utils.security.SecurityFactory;
+import org.hibernate.Session;
 
 import java.util.Optional;
 
@@ -26,15 +27,21 @@ public class UserService implements IService {
     }
 
     public Optional<User> getUser(String username) {
-        return sqlService.getSessionFactory().openSession().createQuery("FROM User WHERE username = :username", User.class).setParameter("username", username).uniqueResultOptional();
+        try (Session session = sqlService.getSessionFactory().openSession()) {
+            return session.createQuery("FROM User WHERE username = :username", User.class).setParameter("username", username).uniqueResultOptional();
+        }
     }
 
     public Optional<User> getUser(int id) {
-        return sqlService.getSessionFactory().openSession().createQuery("FROM User WHERE id = :id", User.class).setParameter("id", id).uniqueResultOptional();
+        try (Session session = sqlService.getSessionFactory().openSession()) {
+            return session.createQuery("FROM User WHERE id = :id", User.class).setParameter("id", id).uniqueResultOptional();
+        }
     }
 
     public Optional<User> getUserByEmail(String email) {
-        return sqlService.getSessionFactory().openSession().createQuery("FROM User WHERE email = :email", User.class).setParameter("email", email).uniqueResultOptional();
+        try (Session session = sqlService.getSessionFactory().openSession()) {
+            return session.createQuery("FROM User WHERE email = :email", User.class).setParameter("email", email).uniqueResultOptional();
+        }
     }
 
     public void saveUser(User user) {
@@ -42,14 +49,22 @@ public class UserService implements IService {
         try {
             user.setPassword(SecurityFactory.getFactory().getSecurity().encrypt(user.getPassword(), user.getSaltKey()));
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
-
-        sqlService.getSessionFactory().openSession().saveOrUpdate(user);
+        Session session = sqlService.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();
     }
 
     public void deleteUser(User user) {
-        sqlService.getSessionFactory().openSession().delete(user);
+        Session session = sqlService.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(user);
+        session.getTransaction().commit();
+        session.close();
     }
 
     public String getNicePassword(User user) {
