@@ -5,6 +5,8 @@ import me.ryzeon.mate.model.flight.IFlight;
 import me.ryzeon.mate.model.user.User;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.services.FlightService;
+import me.ryzeon.mate.services.FlightServicesV_2;
+import me.ryzeon.mate.services.UserService;
 import org.hibernate.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,8 +32,35 @@ public class TestFlight {
     static void initContainer() {
         ServiceContainer.register(FlightService.class);
         ServiceContainer.register(SQLService.class);
+        ServiceContainer.register(UserService.class);
+        ServiceContainer.register(FlightServicesV_2.class);
         ServiceContainer.enableServices();
         LOGGER.info(() -> "Registered container");
+    }
+
+    @Test
+    void testMatricezBooleanas() {
+        Boolean[][] matriz1 = {
+                {true, false, true},
+                {false, true, true},
+                {true, true, false},
+                {false, false, true}
+        };
+        Boolean[][] matriz2 = {
+                {false, false},
+                {true, true},
+                {true, false}
+        };
+
+        boolean[][] result = ServiceContainer.get(FlightServicesV_2.class).multiply(matriz1, matriz2);
+
+        for (boolean[] booleans : result) {
+            for (boolean aBoolean : booleans) {
+                System.out.print(aBoolean + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     @Test
