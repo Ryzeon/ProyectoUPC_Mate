@@ -6,7 +6,6 @@ import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.validation.Constraint;
 import io.github.palexdev.materialfx.validation.MFXValidator;
-import io.github.palexdev.mfxeffects.animations.motion.BounceOutCurve;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -32,6 +31,7 @@ import java.util.ResourceBundle;
  * Github: github.ryzeon.me
  */
 public class SignUpController implements IScreenController<SignUpController> {
+
     public MFXTextField username;
     public MFXTextField mail;
     public MFXButton register;
@@ -62,23 +62,9 @@ public class SignUpController implements IScreenController<SignUpController> {
             }
         });
 
-        password_1.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode().getName().equals("Enter")) {
-                password_2.requestFocus();
-            }
-        });
-
-        password_2.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode().getName().equals("Enter")) {
-                register.fire();
-            }
-        });
-
-        validatorText.setTextFill(Color.RED);
-        validatorText.setPrefWidth(300);
-        validatorText.setText("");
-        validatorText.setManaged(false);
+        Utils.handlePressed(password_1, password_2, register, validatorText);
     }
+
 
     public void onGoBack(ActionEvent actionEvent) {
         try {
@@ -89,20 +75,9 @@ public class SignUpController implements IScreenController<SignUpController> {
     }
 
     boolean validate() {
-        MFXValidator validator = username.getValidator();
-        List<Constraint> constraints = validator.validate();
-        if (!constraints.isEmpty()) {
-            validatorText.setText(constraints.get(0).getMessage());
-            validatorText.setManaged(true);
-            return false;
-        }
-        validator = password_1.getValidator();
-        constraints = validator.validate();
-        if (!constraints.isEmpty()) {
-            validatorText.setText(constraints.get(0).getMessage());
-            validatorText.setManaged(true);
-            return false;
-        }
+        if (Utils.validators(username, validatorText, password_1)) return false;
+        MFXValidator validator;
+        List<Constraint> constraints;
 
         validator = password_2.getValidator();
         constraints = validator.validate();

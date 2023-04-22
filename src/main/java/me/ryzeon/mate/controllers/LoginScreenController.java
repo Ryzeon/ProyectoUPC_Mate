@@ -1,12 +1,7 @@
 package me.ryzeon.mate.controllers;
 
 import io.github.palexdev.materialfx.controls.*;
-import io.github.palexdev.materialfx.validation.Constraint;
-import io.github.palexdev.materialfx.validation.MFXValidator;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanExpression;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,7 +16,6 @@ import me.ryzeon.mate.services.UserService;
 import me.ryzeon.mate.utils.Utils;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -56,38 +50,11 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
         password.getValidator()
                 .constraint("Password must be at least 8 characters long", password.textProperty().length().greaterThanOrEqualTo(4));
 
-        username.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode().getName().equals("Enter")) {
-                password.requestFocus();
-            }
-        });
-        password.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode().getName().equals("Enter")) {
-                login.fire();
-            }
-        });
-
-        validatorText.setTextFill(Color.RED);
-        validatorText.setPrefWidth(300);
-        validatorText.setText("");
-        validatorText.setManaged(false);
+        Utils.handlePressed(username, password, login, validatorText);
     }
 
     boolean validate() {
-        MFXValidator validator = username.getValidator();
-        List<Constraint> constraints = validator.validate();
-        if (!constraints.isEmpty()) {
-            validatorText.setText(constraints.get(0).getMessage());
-            validatorText.setManaged(true);
-            return false;
-        }
-        validator = password.getValidator();
-        constraints = validator.validate();
-        if (!constraints.isEmpty()) {
-            validatorText.setText(constraints.get(0).getMessage());
-            validatorText.setManaged(true);
-            return false;
-        }
+        if (Utils.validators(username, validatorText, password)) return false;
         validatorText.setText("");
         validatorText.setManaged(false);
         return true;
