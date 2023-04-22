@@ -1,7 +1,6 @@
 package me.ryzeon.mate.screens;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 /**
  * Created by Ryzeon

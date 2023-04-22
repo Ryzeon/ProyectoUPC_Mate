@@ -1,5 +1,7 @@
 package me.ryzeon.mate;
 
+import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
+import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,6 +34,7 @@ public class FlightApplication {
         ScreenLoader screen = ScreenFactory.getInstance().loadScreenWithController(Screen.LOGIN);
         Scene scene = new Scene(screen.loadScreen());
         stage.initStyle(StageStyle.DECORATED);
+        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
