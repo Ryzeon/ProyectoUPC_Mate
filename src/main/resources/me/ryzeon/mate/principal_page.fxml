@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<TabPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <tabs>
+        <Tab fx:id="home_tab" text="Home">
+            <fx:include source="tabs/home-page-tab.fxml"/>
+        </Tab>
+        <Tab fx:id="flights_tab" text="Vuelos">
+            <fx:include source="tabs/flight-page-tab.fxml"/>
+        </Tab>
+        <Tab fx:id="buy_tab" text="Compras">
+            <fx:include source="tabs/buy-page-tab.fxml"/>
+        </Tab>
+    </tabs>
+</TabPane>

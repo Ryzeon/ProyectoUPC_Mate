@@ -16,6 +16,7 @@ Project documentation
 - [MaterialFX](https://github.com/palexdev/MaterialFX)
 - [AwesomeJavaFX](https://github.com/mhrimaz/AwesomeJavaFX)
 - [AnimateFX](https://github.com/Typhon0/AnimateFX)
+- [Hibernate](https://hibernate.org/)
 # Installation
 ```bash
 git clone #Copy the repository

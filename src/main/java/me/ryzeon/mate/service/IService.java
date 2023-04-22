@@ -7,6 +7,7 @@ package me.ryzeon.mate.service;
  * Twitter: @Ryzeon_ 😎
  * Github: github.ryzeon.me
  */
+
 public interface IService {
 
     void enable();

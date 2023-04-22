@@ -1,8 +1,12 @@
 package me.ryzeon.mate;
 
+import me.ryzeon.mate.backend.SQLService;
 import me.ryzeon.mate.model.flight.IFlight;
+import me.ryzeon.mate.model.user.User;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.services.FlightService;
+import org.hibernate.Session;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,6 +29,7 @@ public class TestFlight {
     @DisplayName("Registering container")
     static void initContainer() {
         ServiceContainer.register(FlightService.class);
+        ServiceContainer.register(SQLService.class);
         ServiceContainer.enableServices();
         LOGGER.info(() -> "Registered container");
     }
@@ -44,6 +49,40 @@ public class TestFlight {
         // TODO: Try to improve the algorithm and allow more 4 connections
         // TODO: Try to use a cache system with database
         LogaritAnalysis.INSTANCE.finish();
+    }
+
+    @Test
+    void insertUser() {
+        User user = new User();
+        user.setUsername("ryzeon");
+        user.setPassword("123456");
+        user.setEmail("xd@xd");
+
+        Session session = ServiceContainer.get(SQLService.class).getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            session.save(user);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+
+        User user1 = session.get(User.class, 1);
+        System.out.println(user1);
+        Assertions.assertNotNull(user1);
+
+        User userByUsername = session.createQuery("from User where username = :username", User.class)
+                .setParameter("username", "ryzeon")
+                .getSingleResult();
+
+        System.out.println(userByUsername);
+        Assertions.assertNotNull(userByUsername);
+
+        Assertions.assertEquals(user1, userByUsername);
+
+        session.close();
+
     }
 
     static class LogaritAnalysis {
