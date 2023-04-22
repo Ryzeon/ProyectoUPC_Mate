@@ -26,7 +26,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "saltKey")
+    private String saltKey;
+
     @Column(name = "email")
     private String email;
-
 }
