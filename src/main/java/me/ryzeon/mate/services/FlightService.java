@@ -6,7 +6,10 @@ import me.ryzeon.mate.model.flight.impl.ConnectionFlight;
 import me.ryzeon.mate.model.flight.impl.DirectFlight;
 import me.ryzeon.mate.service.IService;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -20,6 +23,9 @@ public class FlightService implements IService {
 
     @Getter
     private final List<IFlight> flights = new ArrayList<>();
+
+    @Getter
+    private final Set<String> cities = new HashSet<>();
 
     @Override
     public void enable() {
@@ -81,6 +87,8 @@ public class FlightService implements IService {
     }
 
     void registerDirectFlight(String origin, String destination) {
+        cities.add(origin);
+        cities.add(destination);
         IFlight flight = new DirectFlight(origin, destination);
         flights.add(flight);
         flights.add(flight.returnFlight()); // Add return flight

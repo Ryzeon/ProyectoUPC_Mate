@@ -19,5 +19,6 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="me.ryzeon.mate.model.user.User"/>
+        <mapping class="me.ryzeon.mate.model.travel.TravelInfo"/>
     </session-factory>
 </hibernate-configuration>

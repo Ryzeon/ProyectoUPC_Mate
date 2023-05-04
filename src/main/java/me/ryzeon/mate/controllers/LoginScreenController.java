@@ -77,6 +77,7 @@ public class LoginScreenController implements IScreenController<LoginScreenContr
                 Utils.saveLocalCredentials(user.get());
             }
             try {
+                ServiceContainer.bind(UserService.class).setUser(user.get());
                 FlightApplication.getInstance().switchTo(Screen.PRINCIPAL_PAGE);
             } catch (Exception e) {
                 throw new RuntimeException(e);

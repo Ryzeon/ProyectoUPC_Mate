@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS TICKETS;
+
+CREATE TABLE TICKETS (
+    id INT NOT NULL AUTO_INCREMENT,
+    buyer_id INT NOT NULL,
+    flight_id VARCHAR(255) NOT NULL UNIQUE,
+    origin VARCHAR(255) NOT NULL,
+    destination VARCHAR(255) NOT NULL,
+    date VARCHAR(255) NOT NULL,
+    board_time VARCHAR(255) NOT NULL,
+    connections VARCHAR(255) NOT NULL,
+    gate_number VARCHAR(255) NOT NULL,
+    seat_code VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);

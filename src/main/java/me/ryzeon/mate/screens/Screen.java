@@ -15,6 +15,8 @@ public enum Screen {
     LOGIN("login-screen"),
     SIGN_UP("sign-in"),
     PRINCIPAL_PAGE("principal_page"),
+
+    TICKET_INFO("flight_ticket"),
     ;
 
     private final String screenName;

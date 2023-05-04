@@ -12,6 +12,7 @@ import me.ryzeon.mate.screens.ScreenFactory;
 import me.ryzeon.mate.screens.ScreenLoader;
 import me.ryzeon.mate.service.ServiceContainer;
 import me.ryzeon.mate.services.FlightService;
+import me.ryzeon.mate.services.TravelInfoService;
 import me.ryzeon.mate.services.UserService;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class FlightApplication {
         ServiceContainer.register(SQLService.class);
         ServiceContainer.register(FlightService.class);
         ServiceContainer.register(UserService.class);
+        ServiceContainer.register(TravelInfoService.class);
         ServiceContainer.enableServices();
 
         UserService userService = ServiceContainer.get(UserService.class);

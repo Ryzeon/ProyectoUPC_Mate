@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXFilterComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import io.github.palexdev.materialfx.controls.MFXSlider?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0" >
+<AnchorPane prefHeight="720.0" prefWidth="927.0" stylesheets="@../css/search_flight.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.tabs.FlightsController">
+    <Line endX="170.0" endY="-120.0" layoutX="101.0" layoutY="113.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+    <Line endX="170.0" endY="-120.0" layoutX="111.0" layoutY="80.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+    <Label layoutX="98.0" layoutY="110.0" text="Origen" />
+    <Label layoutX="323.0" layoutY="110.0" text="Destino" />
+    <MFXListView fx:id="list_view" layoutX="60.0" layoutY="205.0" prefHeight="472.0" prefWidth="806.0" />
+    <MFXFilterComboBox fx:id="to_box" layoutX="323.0" layoutY="132.0" prefHeight="42.0" prefWidth="188.0" />
+    <MFXFilterComboBox fx:id="from_box" layoutX="80.0" layoutY="132.0" prefHeight="42.0" prefWidth="174.0" />
+   <MFXSlider fx:id="scales" bidirectional="false" enableKeyboard="false" layoutX="597.0" layoutY="150.0" max="5.0" minorTicksCount="1" showMajorTicks="true" showMinorTicks="true" sliderMode="SNAP_TO_TICKS" tickUnit="1.0" unitIncrement="1.0" />
+   <Label layoutX="589.0" layoutY="110.0" text="Escalas" />
+   <MFXButton fx:id="search" layoutX="772.0" layoutY="121.0" prefHeight="42.0" prefWidth="100.0" rippleColor="#d7baba" style="-fx-background-color: -mfx-purple;" text="Buscar" textFill="#e1d1d1" wrapText="true">
+      <font>
+         <Font size="18.0" />
+      </font></MFXButton>
 
 </AnchorPane>

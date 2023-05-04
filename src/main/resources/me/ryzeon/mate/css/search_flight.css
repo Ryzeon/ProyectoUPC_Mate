@@ -1,0 +1,43 @@
+#list_view {
+    -fx-background-color: -mfx-purple;
+    -fx-background-radius: 10;
+    -fx-border-color: -mfx-purple;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+}
+
+#list_view .virtual-flow {
+    -fx-background-color: transparent;
+}
+
+#list_view:focused {
+    -fx-border-color: -mfx-purple;
+}
+
+#list_view .virtual-flow .mfx-list-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+#list_view .virtual-flow .mfx-list-cell .data-label {
+    -fx-text-fill: white;
+}
+
+#list_view .virtual-flow .mfx-list-cell .user-icon {
+    -mfx-color: white;
+}
+
+#list_view .virtual-flow .mfx-list-cell:hover,
+#list_view .virtual-flow .mfx-list-cell:selected {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}
+
+#list_view .virtual-flow .mfx-list-cell .mfx-ripple-generator {
+    -mfx-auto-clip: true;
+}
+
+#list_view .virtual-flow .mfx-list-cell:selected .mfx-ripple-generator {
+    -mfx-paused: true;
+}

@@ -26,4 +26,11 @@ public interface IFlight {
 
     IFlight returnFlight();
 
+    default int countConnections() {
+        if (isDirectFlight()) {
+            return 0;
+        }
+        return 1 + connection().countConnections();
+    }
+
 }

@@ -1,5 +1,7 @@
 package me.ryzeon.mate.services;
 
+import lombok.Getter;
+import lombok.Setter;
 import me.ryzeon.mate.backend.SQLService;
 import me.ryzeon.mate.model.user.User;
 import me.ryzeon.mate.service.IService;
@@ -20,6 +22,10 @@ import java.util.Optional;
 public class UserService implements IService {
 
     private final SQLService sqlService = ServiceContainer.get(SQLService.class);
+
+    @Getter
+    @Setter
+    private User user;
 
     @Override
     public void enable() {
@@ -84,6 +90,7 @@ public class UserService implements IService {
         if (user.isEmpty()) {
             return false;
         }
+        user.ifPresent(value -> this.user = value);
         try {
             return SecurityFactory.getFactory().getSecurity().decrypt(user.get().getPassword(), user.get().getSaltKey()).equals(localCredentials[1]);
         } catch (Exception e) {

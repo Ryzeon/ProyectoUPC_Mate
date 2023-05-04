@@ -20,18 +20,18 @@ import java.io.IOException;
 public class ScreenLoader {
     private final FXMLLoader loader;
     private Parent parent;
-    private final IScreenController<?> controller;
+    private IScreenController<?> controller;
 
     private Bounds bounds;
 
     public ScreenLoader(FXMLLoader loader) throws IOException {
         this.loader = loader;
-        this.controller = loader.getController();
     }
 
     public Parent loadScreen() throws IOException {
         this.parent = loader.load();
         this.bounds = parent.getBoundsInLocal();
+        this.controller = loader.getController();
         return parent;
     }
 }

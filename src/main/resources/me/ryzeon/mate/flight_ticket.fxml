@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="411.0" prefWidth="1124.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.ryzeon.mate.controllers.view.TicketFlightController">
+<!--    DIseno de vista de vista-->
+
+    <Line endX="170.0" endY="-120.0" layoutX="101.0" layoutY="113.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+   <ImageView fitHeight="370.0" fitWidth="1012.0" layoutX="56.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@img/ticket.jpg" />
+      </image>
+   </ImageView>
+    <Line endX="170.0" endY="-120.0" layoutX="111.0" layoutY="80.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+   <Label fx:id="passenger_name" layoutX="200.0" layoutY="149.0" prefHeight="27.0" prefWidth="212.0" text="PassengerName">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="from" layoutX="200.0" layoutY="206.0" prefHeight="27.0" prefWidth="188.0" text="Origin">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="to" layoutX="200.0" layoutY="264.0" prefHeight="27.0" prefWidth="195.0" text="Destination">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="board_time" layoutX="547.0" layoutY="163.0" prefHeight="27.0" prefWidth="218.0" text="BoardingTime">
+      <font>
+         <Font name="Gadugi" size="19.0" />
+      </font>
+   </Label>
+   <Label fx:id="gate_number" layoutX="207.0" layoutY="331.0" prefHeight="27.0" prefWidth="91.0" text="GateNumber">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="date" layoutX="354.0" layoutY="331.0" prefHeight="27.0" prefWidth="75.0" text="Date">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="flight_number" layoutX="498.0" layoutY="331.0" prefHeight="27.0" prefWidth="98.0" text="FlightNumber">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="seat_code" layoutX="632.0" layoutY="331.0" prefHeight="27.0" prefWidth="98.0" text="SeatCode">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="passenger_name_2" layoutX="778.0" layoutY="128.0" prefHeight="27.0" prefWidth="160.0" text="PassengerName">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="from_2" layoutX="778.0" layoutY="169.0" prefHeight="27.0" prefWidth="195.0" text="Origin">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="to_2" layoutX="778.0" layoutY="212.0" prefHeight="27.0" prefWidth="218.0" text="Destination">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="gate_number_2" layoutX="760.0" layoutY="264.0" prefHeight="27.0" prefWidth="91.0" text="GateNumber">
+      <font>
+         <Font name="Gadugi" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="date_2" layoutX="850.0" layoutY="264.0" prefHeight="27.0" prefWidth="91.0" text="Date">
+      <font>
+         <Font name="Gadugi" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="flight_number_2" layoutX="970.0" layoutY="264.0" prefHeight="27.0" prefWidth="91.0" text="FlightNumber">
+      <font>
+         <Font name="Gadugi" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="board_time_2" layoutX="778.0" layoutY="325.0" prefHeight="27.0" prefWidth="91.0" text="BoardingTime">
+      <font>
+         <Font name="Gadugi" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="seat_code_2" layoutX="965.0" layoutY="331.0" prefHeight="27.0" prefWidth="67.0" text="SeatCode">
+      <font>
+         <Font name="Gadugi" size="14.0" />
+      </font>
+   </Label>
+</AnchorPane>
