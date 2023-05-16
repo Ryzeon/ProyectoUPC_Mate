@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0" >
-<!--info simple de floro-->
+
+<AnchorPane prefHeight="450.0" prefWidth="774.0" style="-fx-background-color: fffffff;" fx:controller="me.ryzeon.mate.controllers.tabs.HomeController" fx:id="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="166.0" fitWidth="602.0" layoutX="86.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/aviancalogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="170.0" endY="-120.0" layoutX="121.0" layoutY="90.0" startX="-147.60659790039062" startY="39.393402099609375" stroke="#4fa18d" strokeWidth="15.0" />
+      <Line endX="210.78680419921875" endY="-139.60659790039062" layoutX="111.0" layoutY="123.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+      <MFXButton fx:id="buy" layoutX="88.0" layoutY="298.0" prefHeight="88.0" prefWidth="272.0" text="Quieres comprar un pasaje ?    Haz click Aqui" underline="true" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXButton>
+      <MFXButton fx:id="bought" layoutX="549.0" layoutY="308.0" prefHeight="50.0" prefWidth="146.0" text="Vuelos Comprados" />
+      <Label layoutX="86.0" layoutY="170.0" prefHeight="39.0" prefWidth="191.0" text="Bienvenido" textFill="#4c60a8">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="usuario" layoutX="224.0" layoutY="181.0" prefHeight="17.0" prefWidth="67.0" text="Label" />
+   </children>
+
 </AnchorPane>

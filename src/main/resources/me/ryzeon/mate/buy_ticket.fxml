@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import io.github.palexdev.materialfx.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0"
->
+<AnchorPane prefHeight="720.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Line endX="170.0" endY="-120.0" layoutX="101.0" layoutY="113.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+    <Line endX="170.0" endY="-120.0" layoutX="111.0" layoutY="80.0" startX="-108.0" startY="18.292892456054688" stroke="#4fa18d" strokeWidth="15.0" />
+    <Label layoutX="342.0" layoutY="42.0" text="Menú de Pago">
+        <font>
+            <Font name="Tw Cen MT" size="36.0" />
+        </font>
+    </Label>
+    <Label layoutX="391.0" layoutY="83.0" text="Ingrese sus datos">
+        <font>
+            <Font name="Tw Cen MT" size="24.0" />
+        </font>
+    </Label>
+    <MFXTextField layoutX="28.0" layoutY="197.0" prefHeight="49.0" prefWidth="360.0" promptText="Número de Tarjeta" />
+    <MFXTextField layoutX="388.0" layoutY="197.0" prefHeight="49.0" prefWidth="83.0" promptText="MM/AA" />
+    <MFXTextField layoutX="472.0" layoutY="197.0" prefHeight="49.0" prefWidth="30.0" promptText="CVC" />
+    <MFXTextField layoutX="28.0" layoutY="271.0" prefHeight="49.0" prefWidth="528.0" promptText="Dirección" />
+    <MFXTextField layoutX="28.0" layoutY="350.0" prefHeight="49.0" prefWidth="528.0" promptText="País" />
+    <MFXTextField layoutX="28.0" layoutY="415.0" prefHeight="49.0" prefWidth="148.0" promptText="Ciudad" />
+    <MFXTextField layoutX="175.0" layoutY="415.0" prefHeight="49.0" prefWidth="235.0" promptText="Departamento" />
+    <MFXTextField layoutX="408.0" layoutY="415.0" prefHeight="49.0" prefWidth="148.0" promptText="Codigo Postal" />
+    <Button layoutX="338.0" layoutY="511.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="218.0" text="Comprar" />
+    <Button layoutX="28.0" layoutY="511.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="218.0" text="Cancelar" />
+
+
 
 </AnchorPane>

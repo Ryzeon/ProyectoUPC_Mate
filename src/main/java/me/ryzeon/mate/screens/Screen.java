@@ -16,6 +16,8 @@ public enum Screen {
     SIGN_UP("sign-in"),
     PRINCIPAL_PAGE("principal_page"),
 
+    BUY_TICKET("buy_ticket"),
+
     TICKET_INFO("flight_ticket"),
     ;
 
