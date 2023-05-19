@@ -21,9 +21,10 @@ Project documentation
 ```bash
 git clone https://github.com/Ryzeon/ProyectoUPC_Mate.git
 cd ProyectoUPC_Mate 
-mvn clean javafx:run
+# If you are in linux
+./mvnw clean javafx:run
+# If you are in windows
+mvnw.cmd clean javafx:run
 ```
 ## Requirements
-> - [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-> - [Scene Builder](https://gluonhq.com/products/scene-builder/)
-> - [Maven](https://maven.apache.org/download.cgi)
+> - [Java 11](https://bell-sw.com/pages/downloads/) Choose JDK 11 LTS
