@@ -5,6 +5,7 @@ https://floobits.com/Ryzeon/ProjectoUPC_Mate/file/README.md:1#
 # Team:
 - [Alex Avila ](https://github.com/Ryzeon)
 - [Gustavo Huilca](https://github.com/GustavoHuilca31)
+- [Mateo Loechle](https://github.com/LowMathzzz)
 
 # Docs
 ```
@@ -18,10 +19,9 @@ Project documentation
 - [Hibernate](https://hibernate.org/)
 # Installation
 ```bash
-git clone #Copy the repository
-cd #Enter the project folder
-mvn clean install #Install the dependencies
-java -jar target/ #Run the project
+git clone https://github.com/Ryzeon/ProyectoUPC_Mate.git
+cd ProyectoUPC_Mate 
+mvn clean javafx:run
 ```
 ## Requirements
 > - [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
